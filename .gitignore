@@ -1,0 +1,16 @@
+# Python
+venv/
+*/venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables
+.env
+
+# Chroma vector database
+chroma_db/
+
+# OS junk
+.DS_Store
+Thumbs.db

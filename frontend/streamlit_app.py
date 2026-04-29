@@ -12,8 +12,6 @@ st.set_page_config(
 API = "http://127.0.0.1:8000"
 
 # ─── AUTH GATE ────────────────────────────────────────────────────────────────
-# Check for a real non-empty token — not just whether the key exists.
-# The key can exist with value "" if a previous login attempt failed silently.
 _token = st.session_state.get("jwt", "")
 if not _token or len(_token.strip()) < 10:
     from login import show_login
@@ -22,7 +20,6 @@ if not _token or len(_token.strip()) < 10:
 
 role  = st.session_state["role"]
 email = st.session_state.get("email", "")
-st.code(st.session_state.get('jwt', 'NO TOKEN'))
 
 # ─── HELPER: authenticated API calls ─────────────────────────────────────────
 def auth_headers() -> dict:
@@ -41,16 +38,19 @@ with st.sidebar:
     st.markdown(f"{role_colors.get(role, '⚪')} `{role}`")
     st.divider()
 
+    # All roles can see these
+    st.page_link("pages/4_Asset_Detail.py", label="🏠 Asset Detail")
+
     if role in ("admin", "analyst"):
         st.page_link("pages/1_Asset_Inventory.py",        label="📋 Asset Inventory")
         st.page_link("pages/2_Risk_Dashboard.py",         label="📊 Risk Dashboard")
         st.page_link("pages/3_Vulnerability_Explorer.py", label="🔍 Vulnerability Explorer")
         st.page_link("pages/5_AI_Chat.py",                label="🤖 AI Chat")
+        st.page_link("pages/8_Asset_Graph.py",            label="🕸️ Asset Graph")   # ← NEW
 
     if role == "admin":
         st.page_link("pages/6_Orphan_Tracker.py", label="👻 Orphan Tracker")
-
-    st.page_link("pages/4_Asset_Detail.py", label="🏠 Asset Detail")
+        st.page_link("pages/7_Admin_Panel.py",    label="⚙️ Admin Panel")           # ← NEW
 
     st.divider()
     if st.button("Log out"):
@@ -78,8 +78,6 @@ st.markdown("""
 
 
 # ─── FETCH STATS ─────────────────────────────────────────────────────────────
-# No @st.cache_data — caching was causing stale 401 errors to persist across
-# login sessions. With 300 assets this is fast enough without caching.
 def fetch_stats(token: str):
     try:
         response = requests.get(
@@ -164,18 +162,21 @@ nav1, nav2, nav3 = st.columns(3)
 with nav1:
     st.page_link("pages/1_Asset_Inventory.py", label="📋 Asset Inventory")
     st.page_link("pages/2_Risk_Dashboard.py",  label="📊 Risk Dashboard")
+    st.page_link("pages/8_Asset_Graph.py",     label="🕸️ Asset Graph")        # ← NEW
 with nav2:
     st.page_link("pages/3_Vulnerability_Explorer.py", label="🔍 Vulnerability Explorer")
     st.page_link("pages/4_Asset_Detail.py",           label="🏠 Asset Detail")
 with nav3:
     st.page_link("pages/5_AI_Chat.py",        label="🤖 AI Chat Assistant")
     st.page_link("pages/6_Orphan_Tracker.py", label="👻 Orphan Tracker")
+    if role == "admin":
+        st.page_link("pages/7_Admin_Panel.py", label="⚙️ Admin Panel")         # ← NEW
 
 # ─── FOOTER ───────────────────────────────────────────────────────────────────
 st.divider()
 st.markdown(
     "<p style='text-align:center; color:#475569; font-size:12px;'>"
     "Sentinel v2.0 — AI-Driven Cyber Asset & Attack Surface Management | "
-    "Phase 7 Complete ✅</p>",
+    "Phase 7+ Complete ✅</p>",
     unsafe_allow_html=True
 )

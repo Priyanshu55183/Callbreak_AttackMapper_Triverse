@@ -1,0 +1,147 @@
+[
+  {
+    "asset_id": "SRV-1023",
+    "asset_type": "Web Server",
+    "owner": "DevOps Team",
+    "ip_address": "192.168.1.20",
+    "open_ports": [80, 443],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2023-1234",
+        "severity": "High",
+        "description": "Remote code execution vulnerability in Apache"
+      },
+      {
+        "cve": "CVE-2022-5678",
+        "severity": "Medium",
+        "description": "Outdated OpenSSL version allows information disclosure"
+      }
+    ]
+  },
+  {
+    "asset_id": "SRV-2045",
+    "asset_type": "Application Server",
+    "owner": "Backend Engineering",
+    "ip_address": "192.168.1.35",
+    "open_ports": [8080, 8443],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2023-7890",
+        "severity": "Critical",
+        "description": "Deserialization vulnerability leading to remote code execution"
+      }
+    ]
+  },
+  {
+    "asset_id": "DB-3301",
+    "asset_type": "Database Server",
+    "owner": "Data Team",
+    "ip_address": "192.168.1.50",
+    "open_ports": [3306],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2021-9988",
+        "severity": "High",
+        "description": "MySQL privilege escalation vulnerability"
+      }
+    ]
+  },
+  {
+    "asset_id": "FW-7788",
+    "asset_type": "Firewall",
+    "owner": "Security Operations",
+    "ip_address": "192.168.1.1",
+    "open_ports": [22],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2022-4567",
+        "severity": "Medium",
+        "description": "SSH brute-force protection misconfiguration"
+      }
+    ]
+  },
+  {
+    "asset_id": "API-5542",
+    "asset_type": "Public API Gateway",
+    "owner": "Platform Team",
+    "ip_address": "192.168.1.60",
+    "open_ports": [443],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2023-3333",
+        "severity": "High",
+        "description": "Improper input validation leading to SQL injection"
+      }
+    ]
+  },
+  {
+    "asset_id": "CLD-9001",
+    "asset_type": "Cloud VM Instance",
+    "owner": "Cloud Engineering",
+    "ip_address": "10.0.0.15",
+    "open_ports": [22, 3389],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2023-8888",
+        "severity": "Critical",
+        "description": "RDP exposure allows remote exploitation"
+      }
+    ]
+  },
+  {
+    "asset_id": "SRV-3322",
+    "asset_type": "Internal Web Server",
+    "owner": "Internal IT",
+    "ip_address": "192.168.2.10",
+    "open_ports": [80],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2020-1010",
+        "severity": "Low",
+        "description": "Directory listing enabled in Apache configuration"
+      }
+    ]
+  },
+  {
+    "asset_id": "MAIL-4421",
+    "asset_type": "Mail Server",
+    "owner": "IT Infrastructure",
+    "ip_address": "192.168.1.70",
+    "open_ports": [25, 587],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2023-7777",
+        "severity": "High",
+        "description": "SMTP relay misconfiguration allowing spam abuse"
+      }
+    ]
+  },
+  {
+    "asset_id": "VPN-1230",
+    "asset_type": "VPN Gateway",
+    "owner": "Security Operations",
+    "ip_address": "192.168.1.90",
+    "open_ports": [443],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2023-4321",
+        "severity": "Critical",
+        "description": "Authentication bypass vulnerability in VPN firmware"
+      }
+    ]
+  },
+  {
+    "asset_id": "APP-7789",
+    "asset_type": "Microservice Container",
+    "owner": "Microservices Team",
+    "ip_address": "10.0.1.12",
+    "open_ports": [5000],
+    "vulnerabilities": [
+      {
+        "cve": "CVE-2022-6789",
+        "severity": "Medium",
+        "description": "Docker container privilege escalation vulnerability"
+      }
+    ]
+  }
+]
